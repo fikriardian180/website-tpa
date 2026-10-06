@@ -73,7 +73,7 @@
                 <!-- Kolom Gambar -->
                 <div class="col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix-big"
                     data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                    <img src="{{ asset('assets/images/left-image.png') }}" class="rounded img-fluid d-block mx-auto" alt="Kegiatan Santri TPA Al-Hidayah">
+                    <img src="{{ asset('assets/images/foto.png') }}" class="rounded img-fluid d-block mx-auto" alt="Kegiatan Santri TPA Al-Hidayah">
                 </div>
 
                 <!-- Kolom Teks -->

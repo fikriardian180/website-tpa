@@ -878,3 +878,24 @@ footer .sub-footer p {
         right: 5px;
     }
 }
+
+/* Force Show Testimonial Owl Carousel */
+#testimonials .owl-carousel {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+#testimonials .owl-stage-outer {
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+#testimonials .owl-stage {
+  display: flex !important;
+}
+
+#testimonials .owl-item {
+  display: block !important;
+  float: left !important;
+}
