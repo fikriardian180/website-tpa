@@ -8,12 +8,15 @@
     <div class="welcome-area" id="welcome">
         <div class="header-text">
             <div class="container">
-                <div class="row">
-                    <div class="left-text col-lg-6 col-md-12 col-sm-12 col-xs-12"
+                <div class="row align-items-center">
+                    <div class="left-text col-lg-6 col-md-12 col-sm-12"
                         data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                        <h1>Menumbuhkan generasi berakhlak <em>Mulia</em></h1>
+                        <h1>Menumbuhkan Generasi Berakhlak <em>Mulia</em></h1>
                         <p>Selamat datang di <strong>TPA Al-Hidayah</strong>. Wadah pembelajaran Al-Qur'an, penanaman akidah, serta pembentukan karakter islami bagi para santri sejak dini dengan metode yang menyenangkan dan terarah.</p> 
                         <a href="#about" class="main-button-slider">PELAJARI PROGRAM KAMI</a>
+                        
+                        <!-- Gambar Banner Khusus Tampilan HP -->
+                        <img src="{{ asset('assets/images/banner.png') }}" class="mobile-banner-img img-fluid d-lg-none d-block mx-auto mt-4" alt="Santri TPA Al-Hidayah">
                     </div>
                 </div>
             </div>
@@ -21,11 +24,20 @@
     </div>
     <!-- ***** Welcome Area End ***** -->
 
-    <!-- ***** Features / Keunggulan Section Start ***** -->
+    <!-- ***** Keunggulan Pembelajaran Section Start ***** -->
     <section class="section" id="about">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="center-heading">
+                        <h2>Keunggulan Pembelajaran <em>TPA Al-Hidayah</em></h2>
+                        <p>Berikut adalah beberapa keunggulan yang kami tawarkan dalam mendidik santri di TPA Al-Hidayah:</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12"
                     data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
                     <div class="features-item">
                         <div class="features-icon">
@@ -37,7 +49,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+                
+                <div class="col-lg-4 col-md-6 col-sm-12"
                     data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s">
                     <div class="features-item">
                         <div class="features-icon">
@@ -49,7 +62,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+                
+                <div class="col-lg-4 col-md-6 col-sm-12"
                     data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
                     <div class="features-item">
                         <div class="features-icon">
@@ -64,21 +78,25 @@
             </div>
         </div>
     </section>
-    <!-- ***** Features / Keunggulan Section End ***** -->
+    <!-- ***** Keunggulan Pembelajaran Section End ***** -->
 
-    <!-- ***** Promotion / About Section Start ***** -->
+    <!-- ***** Detail Keunggulan Section Start ***** -->
     <section class="section" id="promotion">
         <div class="container">
             <div class="row align-items-center">
                 <!-- Kolom Gambar -->
                 <div class="col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix-big"
                     data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                    <img src="{{ asset('assets/images/foto.png') }}" class="rounded img-fluid d-block mx-auto" alt="Kegiatan Santri TPA Al-Hidayah">
+                    <img src="{{ asset('assets/images/foto.png') }}" class="rounded img-fluid d-block mx-auto shadow-sm" alt="Kegiatan Santri TPA Al-Hidayah">
                 </div>
 
-                <!-- Kolom Teks -->
+                <!-- Kolom Teks (Sejajar dengan Foto) -->
                 <div class="col-lg-7 col-md-12 col-sm-12 mobile-bottom-fix">
-                    <ul class="promotion-list">
+                    <div class="left-heading">
+                        <h2>Fokus Pendidikan <em>TPA Al-Hidayah</em></h2>
+                    </div>
+                    
+                    <ul class="promotion-list mt-4">
                         <li data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
                             <img src="{{ asset('assets/images/.about-icon.png') }}" alt="Penanaman Akidah">
                             <div class="text">
@@ -105,18 +123,19 @@
             </div>
         </div>
     </section>
-    <!-- ***** Promotion / About Section End ***** -->
+    <!-- ***** Detail Keunggulan Section End ***** -->
 
-    <!-- ***** Testimonials Starts ***** -->
+    <!-- ***** Testimonials Section Start ***** -->
     <section class="section" id="testimonials">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="center-heading">
-                        <h2>Apa Kata Orang Tua <em>Santri Kami</em></h2>
-                        <p>Apa yang mereka katakan tentang pengalaman mereka dengan santri kami.</p>
+                        <h2>Pesan dari Pengelola <em>& Warga Lokal</em></h2>
+                        <p>Pandangan dan dedikasi tim pengajar serta warga lokal dalam menanamkan nilai akidah, akhlak, dan kecintaan pada Al-Qur'an sejak dini.</p>
                     </div>
                 </div>
+                
                 <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-12 mobile-bottom-fix-big"
                     data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s">
                     <div class="owl-carousel owl-theme">
@@ -133,10 +152,11 @@
                                     <li><i class="fa fa-star"></i></li>
                                 </ul>
                                 <h4>Fariz Mishbahul</h4>
-                                <p>“Kata-katanya Nanti”</p>
-                                <span>Fariz Mishbahul</span>
+                                <p>“Mendidik dengan hati dan keteladanan adalah kunci utama kami dalam mencetak generasi santri yang mencintai Al-Qur'an.”</p>
+                                <span>Pengajar TPA</span>
                             </div>
                         </div>
+
                         <div class="item service-item">
                             <div class="author">
                                 <i><img src="{{ asset('assets/images/testimonial-author-1.png') }}" alt="Nabil Mayda"></i>
@@ -150,10 +170,11 @@
                                     <li><i class="fa fa-star"></i></li>
                                 </ul>
                                 <h4>Nabil Mayda</h4>
-                                <p>“Kata-katanya Nanti”</p>
-                                <span>Nabil Mayda</span>
+                                <p>“Komitmen kami adalah menghadirkan lingkungan belajar Al-Qur'an yang nyaman, terstruktur, dan berakhlaqul karimah.”</p>
+                                <span>Penanggung Jawab TPA</span>
                             </div>
                         </div>
+
                         <div class="item service-item">
                             <div class="author">
                                 <i><img src="{{ asset('assets/images/testimonial-author-1.png') }}" alt="Fauzi Muhammad"></i>
@@ -164,12 +185,14 @@
                                     <li><i class="fa fa-star"></i></li>
                                     <li><i class="fa fa-star"></i></li>
                                     <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
                                 </ul>
                                 <h4>Fauzi Muhammad</h4>
-                                <p>“Kata-katanya Nanti”</p>
-                                <span>Fauzi Muhammad</span>
+                                <p>“Melihat keaktifan dan keceriaan santri saat belajar menjadikan perjuangan mengajar ini terasa sangat bermakna.”</p>
+                                <span>Pengajar TPA</span>
                             </div>
                         </div>
+
                         <div class="item service-item">
                             <div class="author">
                                 <i><img src="{{ asset('assets/images/testimonial-author-1.png') }}" alt="Imroatul Hasanah"></i>
@@ -180,10 +203,11 @@
                                     <li><i class="fa fa-star"></i></li>
                                     <li><i class="fa fa-star"></i></li>
                                     <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
                                 </ul>
                                 <h4>Imroatul Hasanah</h4>
-                                <p>“Kata-katanya Nanti”</p>
-                                <span>Imroatul Hasanah</span>
+                                <p>“Kehadiran TPA Al-Hidayah membawa suasana religius yang positif dan membawa keberkahan bagi anak-anak di lingkungan kami.”</p>
+                                <span>Warga Lokal</span>
                             </div>
                         </div>
                     </div>
@@ -191,6 +215,6 @@
             </div>
         </div>
     </section>
-    <!-- ***** Testimonials Ends ***** -->
+    <!-- ***** Testimonials Section End ***** -->
 
 @endsection

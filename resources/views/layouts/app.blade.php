@@ -41,43 +41,42 @@
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="{{ url('/') }}" class="logo d-flex align-items-center">
-                        <img src="{{ asset('assets/images/logo-tpa.png') }}" alt="Logo TPA Al-Hidayah" class="logo-img me-2">
-                        <span>Al-Hidayah</span>
-                    </a>
-                    <!-- ***** Logo End ***** -->
+                        <!-- ***** Logo Start ***** -->
+                        <a href="{{ url('/') }}" class="logo d-flex align-items-center">
+                            <img src="{{ asset('assets/images/logo-tpa.png') }}" alt="Logo TPA Al-Hidayah" class="logo-img me-2">
+                            <span>Al-Hidayah</span>
+                        </a>
+                        <!-- ***** Logo End ***** -->
                         
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li class="submenu">
                                 <a href="javascript:;">Home</a>
                                 <ul>
-                                    <li><a href="#welcome" class="menu-item">Home</a></li>
-                                    <li><a href="#about" class="menu-item">Sejarah TPA</a></li>
+                                    <li><a href="{{ url('/') }}" class="menu-item">Home</a></li>
+                                    <li><a href="{{ url('/sejarah') }}" class="menu-item">Sejarah TPA</a></li>
                                 </ul>
                             </li>
                             <li class="submenu">
                                 <a href="javascript:;">Tentang Kami</a>
                                 <ul>
-                                    <li><a href="#about" class="menu-item">Profil Pengajar Putra</a></li>
-                                    <li><a href="#about" class="menu-item">Profil Pengajar Putri</a></li>
-                                    <li><a href="#about" class="menu-item">Profil Santri</a></li>
+                                    <li><a href="{{ url('/pengajar-putra') }}" class="menu-item">Profil Pengajar TPA</a></li>
+                                    <li><a href="{{ url('/profil-santri') }}" class="menu-item">Profil Santri</a></li>
                                 </ul>
                             </li>
                             <li class="submenu">
                                 <a href="javascript:;">Program & Kegiatan</a>
                                 <ul>
-                                    <li><a href="#promotion" class="menu-item">Tadabur Alam</a></li>
-                                    <li><a href="#promotion" class="menu-item">Tadarus</a></li>
-                                    <li><a href="#promotion" class="menu-item">Pendidikan Agama Islam</a></li>
+                                    <li><a href="{{ url('/tadabbur-alam') }}" class="menu-item">Tadabur Alam</a></li>
+                                    <li><a href="{{ url('/tadarus') }}" class="menu-item">Tadarus</a></li>
+                                    <li><a href="{{ url('/pendidikan-agama-islam') }}" class="menu-item">Pendidikan Agama Islam</a></li>
                                 </ul>
                             </li>
                             <li class="submenu">
                                 <a href="javascript:;">Galeri</a>
                                 <ul>
-                                    <li><a href="#testimonials" class="menu-item">Foto Kegiatan Santri</a></li>
-                                    <li><a href="#testimonials" class="menu-item">Pembelajaran</a></li>
+                                    <li><a href="{{ url('/foto-kegiatan-santri') }}" class="menu-item">Foto Kegiatan Santri</a></li>
+                                    <li><a href="{{ url('/pembelajaran') }}" class="menu-item">Pembelajaran</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -103,20 +102,6 @@
     <!-- ***** Footer Start ***** -->
     <footer id="contact-us">
         <div class="container">
-            <div class="footer-content">
-                <div class="row">
-                    <div class="col-lg-6 col-md-12 col-sm-12">
-                        <h1>Buat Foto</h1>
-                    </div>
-                    <div class="right-content col-lg-6 col-md-12 col-sm-12">
-                        <h2>More About <em>Al-Hidayah</em></h2>
-                        <p>Wadah pembelajaran Al-Qur'an, penanaman akidah, serta pembentukan karakter islami bagi para santri sejak dini dengan metode yang menyenangkan dan terarah.</p>
-                        <ul class="social">
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="sub-footer">
@@ -138,6 +123,38 @@
     <script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>
     <script src="{{ asset('assets/js/imgfix.min.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            // 1. Toggle Menu Utama Mobile
+            $('.menu-trigger').on('click', function(e) {
+                e.preventDefault();
+                $(this).toggleClass('active');
+                $('.header-area .main-nav .nav').toggleClass('mobile-active');
+            });
+
+            // 2. Toggle Submenu Accordion di Mobile
+            $('.header-area .main-nav .nav li.submenu > a').on('click', function(e) {
+                if ($(window).width() <= 991) {
+                    e.preventDefault();
+                    var $parentLi = $(this).parent('li.submenu');
+                    $parentLi.toggleClass('active');
+                    $('.header-area .main-nav .nav li.submenu').not($parentLi).removeClass('active');
+                }
+            });
+
+            // 3. PAKSA LINK NAVIGASI AGAR BISA PINDAH HALAMAN (BYPASS PREVENTDEFAULT TEMPLATE)
+            $('.header-area .main-nav .nav li ul li a').off('click').on('click', function(e) {
+                var href = $(this).attr('href');
+                
+                // Jika href tidak kosong, bukan '#', dan bukan 'javascript:;'
+                if (href && href !== '#' && href !== 'javascript:;') {
+                    e.stopPropagation(); // Hentikan script custom.js bawaan template
+                    window.location.href = href; // Paksa pindah halaman ke URL link tersebut
+                }
+            });
+        });
+    </script>
 
     @stack('scripts')
 
