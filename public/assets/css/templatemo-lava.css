@@ -316,51 +316,6 @@ button.main-button:hover {
   .header-area .main-nav .menu-trigger {
     display: block !important;
   }
-
-  .header-area .main-nav .nav {
-    float: none;
-    width: 100%;
-    position: absolute;
-    top: 80px;
-    left: 0;
-    background: #fff;
-    display: none !important;
-    flex-direction: column;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    padding: 10px 0;
-  }
-
-  .header-area .main-nav .nav.active {
-    display: flex !important;
-  }
-
-  .header-area .main-nav .nav li {
-    width: 100%;
-    text-align: center;
-    padding: 0;
-  }
-
-  .header-area .main-nav .nav li a {
-    height: 45px !important;
-    line-height: 45px !important;
-    border-bottom: 1px solid #f0f0f0;
-  }
-
-  .header-area .main-nav .nav li.submenu ul {
-    position: relative;
-    top: 0;
-    width: 100%;
-    box-shadow: none;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    display: none;
-    background: #fafafa;
-  }
-
-  .header-area .main-nav .nav li.submenu:hover ul {
-    display: block;
-  }
 }
 
 /* 
@@ -472,11 +427,8 @@ button.main-button:hover {
 05. FEATURES / KEUNGGULAN SECTION
 --------------------------------------------- 
 */
-#about .row {
-  display: flex;
-  flex-wrap: wrap;
-  padding-top: 120px !important;
-  margin-top: 20px !important;
+#about {
+  padding-top: 100px;
 }
 
 .features-item {
@@ -590,12 +542,6 @@ button.main-button:hover {
   color: #666;
   margin: 0;
   word-wrap: break-word;
-}
-
-/* Decorative Backgrounds */
-.left-image-decor,
-.right-image-decor {
-  display: none; /* Disembunyikan agar layout bersih & rapi */
 }
 
 /* 
@@ -854,340 +800,248 @@ footer .sub-footer p {
   margin: 0 auto;
 }
 
-/* ===================================================
-   TOMBOL PANAH NAVIGASI TESTIMONI (OVERRIDE OWL CAROUSEL)
-   =================================================== */
-
-/* Tampilkan wadah navigasi */
-#testimonials .owl-nav {
-    display: flex !important;
-    justify-content: space-between;
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    transform: translateY(-50%);
-    pointer-events: none;
-    z-index: 10;
-}
-
-/* Styling Tombol Panah Kiri dan Kanan */
-#testimonials .owl-nav button.owl-prev,
-#testimonials .owl-nav button.owl-next {
-    pointer-events: auto;
-    width: 48px;
-    height: 48px;
-    background-color: #1e3a2b !important; /* Hijau Islami Pekat */
-    color: #ffffff !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease !important;
-    border: none !important;
-    outline: none !important;
-}
-
-/* Posisi Tombol Panah */
-#testimonials .owl-nav button.owl-prev {
-    position: absolute;
-    left: -25px;
-}
-
-#testimonials .owl-nav button.owl-next {
-    position: absolute;
-    right: -25px;
-}
-
-/* Efek Hover Tombol Panah */
-#testimonials .owl-nav button.owl-prev:hover,
-#testimonials .owl-nav button.owl-next:hover {
-    background-color: #fbc02d !important; /* Emas Islami */
-    color: #1e3a2b !important;
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Penyesuaian di Layar HP (Mobile) */
-@media (max-width: 767px) {
-    #testimonials .owl-nav button.owl-prev {
-        left: 5px;
-    }
-    #testimonials .owl-nav button.owl-next {
-        right: 5px;
-    }
-}
-
-/* Force Show Testimonial Owl Carousel */
 #testimonials .owl-carousel {
-  display: block !important;
-  opacity: 1 !important;
-  visibility: visible !important;
+  position: relative;
+  width: 100%;
 }
 
 #testimonials .owl-stage-outer {
-  overflow: hidden !important;
-  position: relative !important;
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
 }
 
 #testimonials .owl-stage {
-  display: flex !important;
+  position: relative;
+  touch-action: pan-y;
 }
 
 #testimonials .owl-item {
-  display: block !important;
-  float: left !important;
+  position: relative;
+  float: left;
+  min-height: 1px;
+  backface-visibility: hidden;
+}
+
+#testimonials .owl-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+#testimonials .owl-nav button.owl-prev,
+#testimonials .owl-nav button.owl-next {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  border: 0;
+  border-radius: 50%;
+  background: #1e3a2b;
+  color: #fff;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all 0.3s ease;
+}
+
+#testimonials .owl-nav button.owl-prev {
+  left: -25px;
+}
+
+#testimonials .owl-nav button.owl-next {
+  right: -25px;
+}
+
+#testimonials .owl-nav button.owl-prev:hover,
+#testimonials .owl-nav button.owl-next:hover {
+  background: #fbc02d;
+  color: #1e3a2b;
+  transform: scale(1.1);
 }
 
 /* ===================================================
    RESPONSIVE MOBILE OVERRIDE (KHUSUS LAYAR HP <= 767px)
    =================================================== */
 
-@media (max-width: 767px) {
-  
-  /* 1. Welcoming Area / Hero Section */
-  /* Menampilkan Foto Banner di Mobile secara Rapi */
 @media (max-width: 991px) {
   .welcome-area {
-    min-height: auto !important;
-    padding-top: 110px !important;
-    padding-bottom: 40px !important;
-    background-image: none !important; /* Matikan background-image CSS */
+    min-height: auto;
+    padding: 110px 0 40px;
+    background-image: none;
     text-align: center;
   }
 
-  /* Tampilkan foto di bawah tombol action pada mobile */
   .welcome-area .mobile-banner-img {
-    display: block !important;
-    margin-top: 30px;
+    display: block;
     max-width: 100%;
+    height: auto;
+    margin: 30px auto 0;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   }
 }
 
-@media (min-width: 992px) {
-  .welcome-area .mobile-banner-img {
-    display: none !important; /* Sembunyikan gambar HTML di desktop karena memakai background-image */
+@media (max-width: 767px) {
+  #about {
+    padding-top: 25px;
   }
-}
 
   .welcome-area .header-text h1 {
-    font-size: 28px !important;
-    line-height: 1.3 !important;
-    margin-bottom: 15px !important;
+    font-size: 28px;
+    line-height: 1.3;
+    margin-bottom: 15px;
   }
 
   .welcome-area .header-text p {
-    font-size: 14px !important;
-    line-height: 1.6 !important;
-    margin-bottom: 25px !important;
-  }
-
-  /* 2. Seksi Keunggulan (Cards 01, 02, 03) */
-  #about {
-    padding-top: 25px !important;
-    margin-top: 0 !important;
-  }
-
-  #about .row {
-    display: block !important; /* Kembalikan ke susunan menumpuk ke bawah */
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
   }
 
   .features-item {
-    margin-bottom: 25px !important;
-    padding: 30px 20px !important;
-    height: auto !important;
+    height: auto;
+    margin-bottom: 25px;
+    padding: 30px 20px;
   }
 
   .features-item h2 {
-    font-size: 60px !important;
-    top: 10px !important;
-    left: 20px !important;
+    top: 10px;
+    left: 20px;
+    font-size: 60px;
   }
 
-  /* 3. Seksi Promotion / Profil Detail */
   #promotion {
-    padding: 40px 0 !important;
+    padding: 40px 0;
   }
 
   #promotion .left-image {
-    margin-bottom: 30px !important;
+    margin-bottom: 30px;
   }
 
   #promotion ul li {
-    flex-direction: column !important; /* Susun ikon dan teks secara vertikal */
-    align-items: center !important;
-    text-align: center !important;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   #promotion ul li img {
-    margin-right: 0 !important;
-    margin-bottom: 15px !important;
+    margin: 0 0 15px;
   }
 
-  /* 4. Testimoni Carousel */
   #testimonials {
-    padding: 50px 0 !important;
+    padding: 50px 0;
   }
 
   #testimonials .center-heading h2 {
-    font-size: 26px !important;
+    font-size: 26px;
   }
 
-  /* Amankan tombol panah agar tidak keluar dari layar HP */
   #testimonials .owl-nav button.owl-prev {
-    left: -10px !important;
+    left: 5px;
   }
 
   #testimonials .owl-nav button.owl-next {
-    right: -10px !important;
+    right: 5px;
   }
 
-  /* 5. Navbar & Logo */
   .header-area .main-nav .logo {
-    font-size: 18px !important;
+    font-size: 18px;
   }
 
   .header-area .main-nav .logo img.logo-img {
-    max-height: 32px !important;
+    max-height: 32px;
   }
+
 }
 
-/* Merapikan Tombol Menu Hamburger di HP */
-.header-area .main-nav .menu-trigger {
-  top: 23px !important;
-  right: 15px !important;
-  width: 30px !important;
-  height: 30px !important;
-  text-indent: 0 !important;
+.header-area .main-nav .nav li.submenu:last-child ul {
+  right: 0;
+  left: auto;
 }
 
-.header-area .main-nav .menu-trigger span {
-  font-size: 0 !important; /* Sembunyikan teks 'Menu' agar tidak menumpuk garis */
-  color: transparent !important;
-}
-
-.header-area .main-nav .menu-trigger span:before,
-.header-area .main-nav .menu-trigger span:after {
-  background-color: #1e3a2b !important;
-}
-
-/* ===================================================
-   PERBAIKAN DROPDOWN NAVBAR (DESKTOP & MOBILE)
-   =================================================== */
-
-/* 1. Supaya dropdown menu paling kanan (Galeri) tidak terpotong layar */
-.header-area .main-nav .nav li.submenu:last-child ul,
-.header-area .main-nav .nav li.submenu:nth-last-child(1) ul {
-  left: auto !important;
-  right: 0 !important;
-}
-
-/* 2. Memastikan z-index dropdown tinggi agar melayang di atas konten lain */
 .header-area .main-nav .nav li.submenu ul {
-  z-index: 9999 !important;
+  z-index: 9999;
 }
 
-/* 3. Tampilan Dropdown di Layar HP (Mobile View) */
 @media (max-width: 991px) {
-  .header-area .main-nav .nav li.submenu ul {
-    position: static !important;
-    width: 100% !important;
-    box-shadow: none !important;
-    display: none; /* Disembunyikan dulu, nanti dibuka via JS/Click */
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-    background-color: #f9fbf9 !important;
-    padding: 0 !important;
-  }
-
-  /* Tampilkan sub-menu saat li.submenu memiliki class .active */
-  .header-area .main-nav .nav li.submenu.active > ul {
-    display: block !important;
-  }
-
-  .header-area .main-nav .nav li.submenu ul li a {
-    padding-left: 30px !important;
-    border-bottom: 1px solid #edf2ed !important;
-  }
-}
-
-/* ===================================================
-   ACCORDION MOBILE MENU (STYLE SENTRA HKI)
-   =================================================== */
-
-@media (max-width: 991px) {
-  /* Container Nav Utama */
   .header-area .main-nav .nav {
-    position: absolute !important;
-    top: 80px !important;
-    left: 0 !important;
-    width: 100% !important;
-    background: #1e3a2b !important; /* Hijau Islami Pekat */
-    padding: 10px 20px !important;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    z-index: 9999;
     display: none !important;
-    flex-direction: column !important;
-    z-index: 9999 !important;
+    width: 100%;
+    flex-direction: column;
+    padding: 10px 20px;
+    background: #1e3a2b;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   }
 
   .header-area .main-nav .nav.mobile-active {
     display: flex !important;
   }
 
-  /* Item Menu Utama (Block List) */
   .header-area .main-nav .nav li {
-    width: 100% !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
-    background: transparent !important;
-    padding: 0 !important;
-    text-align: left !important;
+    width: 100%;
+    padding: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    background: transparent;
+    text-align: left;
   }
 
   .header-area .main-nav .nav li a {
-    color: #ffffff !important;
-    font-size: 15px !important;
-    font-weight: 600 !important;
-    padding: 14px 15px !important;
-    height: auto !important;
-    line-height: 1.4 !important;
-    display: flex !important;
+    display: flex;
     align-items: center;
     justify-content: space-between;
-    background: transparent !important;
+    height: auto;
+    padding: 14px 15px;
+    color: #fff !important;
+    font-size: 15px;
+    line-height: 1.4;
   }
 
-  /* Indikator Panah Dropdown */
   .header-area .main-nav .nav li.submenu {
-    position: relative !important;
+    position: relative;
   }
 
   .header-area .main-nav .nav li.submenu > a::after {
-    content: '\f107' !important; /* FontAwesome Chevron Down */
-    font-family: 'FontAwesome' !important;
-    font-size: 14px !important;
-    color: #ffffff !important;
-    transition: transform 0.3s ease !important;
+    content: '\f107';
+    color: #fff;
+    font-family: FontAwesome;
+    font-size: 14px;
+    transition: transform 0.3s ease;
   }
 
   .header-area .main-nav .nav li.submenu.active > a::after {
-    transform: rotate(180deg) !important; /* Putar panah saat aktif */
+    transform: rotate(180deg);
   }
 
-  /* Submenu / Child Menu */
+  .header-area .main-nav .menu-trigger {
+    top: 23px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .header-area .main-nav .menu-trigger span {
+    color: transparent;
+    font-size: 0;
+  }
+
   .header-area .main-nav .nav li.submenu ul {
-    position: static !important;
-    width: 100% !important;
-    background: #14281d !important; /* Warna hijau lebih gelap untuk sub-menu */
-    box-shadow: none !important;
+    position: static;
     display: none !important;
-    padding: 5px 0 !important;
-    transform: none !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+    width: 100%;
+    padding: 5px 0;
+    transform: none;
+    background: #14281d;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
   }
 
   .header-area .main-nav .nav li.submenu.active > ul {
@@ -1195,94 +1049,24 @@ footer .sub-footer p {
   }
 
   .header-area .main-nav .nav li.submenu ul li {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.08);
   }
 
   .header-area .main-nav .nav li.submenu ul li a {
-    font-size: 14px !important;
-    font-weight: 400 !important;
-    padding: 10px 25px !important;
+    padding: 10px 25px;
     color: #d1e0d5 !important;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 400;
   }
 
   .header-area .main-nav .nav li.submenu ul li a:hover {
-    color: #fbc02d !important; /* Akses Emas saat Hover */
+    color: #fbc02d !important;
   }
 }
 
-/* ===================================================
-   MENURUNKAN JUDUL PEMBELAJARAN DARI FOTO BANNER ATAS
-   =================================================== */
-
-/* 1. Memberi jarak atas yang cukup besar pada seksi #about agar judul turun dari banner */
-#about {
-  padding-top: 100px !important; /* Menurunkan judul dari foto banner atas */
-  margin-top: 20px !important;
-}
-
-/* 2. Mengatur jarak dari deskripsi judul ke 3 kotak di bawahnya agar presisi */
-#about .center-heading,
-#about .section-heading {
-  margin-bottom: 20px !important; /* Jarak pas antara deskripsi dengan 3 kotak keunggulan */
-}
-
-/* ===================================================
-   PERBAIKAN NAV BUTTON CAROUSEL AGAR BISA DIKLIK
-   =================================================== */
-
-/* Pastikan container navigasi melayang di atas kartu */
-#testimonials .owl-nav {
-  position: absolute !important;
-  top: 50% !important;
-  width: 100% !important;
-  transform: translateY(-50%) !important;
-  pointer-events: none !important; /* Agar area kosong transparan tidak menghalangi kartu */
-  z-index: 9999 !important;
-}
-
-/* Pastikan tombol kiri & kanan aktif menerima klik */
-#testimonials .owl-nav button.owl-prev,
-#testimonials .owl-nav button.owl-next {
-  pointer-events: auto !important; /* Mengaktifkan kembali sensor klik pada tombol */
-  position: absolute !important;
-  width: 45px !important;
-  height: 45px !important;
-  background: #1e3a2b !important; /* Warna hijau tema */
-  color: #ffffff !important;
-  border-radius: 50% !important;
-  opacity: 0.9 !important;
-  transition: all 0.3s ease !important;
-  cursor: pointer !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-/* Efek Hover saat kursor diarahkan ke tombol */
-#testimonials .owl-nav button.owl-prev:hover,
-#testimonials .owl-nav button.owl-next:hover {
-  background: #fbc02d !important; /* Warna emas saat hover */
-  color: #1e3a2b !important;
-  opacity: 1 !important;
-}
-
-/* Posisi tombol Kiri & Kanan */
-#testimonials .owl-nav button.owl-prev {
-  left: -25px !important;
-}
-
-#testimonials .owl-nav button.owl-next {
-  right: -25px !important;
-}
-
-/* Penyesuaian di layar HP agar tidak keluar layar */
-@media (max-width: 767px) {
-  #testimonials .owl-nav button.owl-prev {
-    left: 5px !important;
-  }
-  #testimonials .owl-nav button.owl-next {
-    right: 5px !important;
-  }
+#about .center-heading {
+  margin-bottom: 20px;
 }
 
 /* ===================================================
